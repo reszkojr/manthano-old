@@ -42,7 +42,8 @@ INSTALLED_APPS = [
     'crispy_bootstrap5',
     'PIL',
     'main.apps.MainConfig',
-    'users'
+    'users',
+    'classrooms'
 ]
 
 CRISPY_ALLOWED_TEMPLATE_PACKS = 'bootstrap5'

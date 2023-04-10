@@ -38,7 +38,7 @@ class Student(AbstractBaseUser, PermissionsMixin):
     is_active = models.BooleanField('Active', default=True)
     date_joined = models.DateTimeField('Date joined', auto_now_add=True)
     
-    classroom = models.ForeignKey("main.Classroom", on_delete=models.CASCADE, related_name='classrooms', null=True)
+    classroom = models.ForeignKey("classrooms.Classroom", on_delete=models.CASCADE, related_name='classrooms', null=True)
 
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = ['username', 'password']
