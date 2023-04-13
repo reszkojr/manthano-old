@@ -5,4 +5,4 @@ from .models import Classroom
 class ClassroomCreationForm(forms.ModelForm):
     class Meta:
         model = Classroom
-        fields = ['']
+        fields = ['name']
