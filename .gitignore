@@ -170,3 +170,4 @@ cython_debug/
 
 .prettierrc
 .vscode/settings.json
+main/static/main/css/output.css
