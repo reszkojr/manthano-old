@@ -5,7 +5,11 @@ import classrooms
 
 from . import views
 
+app_name = 'users'
+
 urlpatterns = [
-    path('login', views.login, name='login'),
-    path('sign-up', views.sign_up, name='sign_up'),
+    path('login/', views.log_in, name='log_in'),
+    path('sign-up/', views.sign_up, name='sign_up'),
+    path('logout/', views.log_out, name='log_out'),
+    path('profile/', views.profile, name='profile'),
 ]

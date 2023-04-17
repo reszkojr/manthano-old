@@ -57,17 +57,17 @@
           <ul class="absolute right-0 top-1/2 flex -translate-y-1/2 flex-row">
             {% if user.is_authenticated %}
             <li>
-              <a class="text-white bg-blue-700 hover:bg-gray-100 md:hover:bg-transparent block rounded py-2 pl-3 pr-3" href="/profile">Logged in as <span class="fw-bold">{{ user.username }}</span></a>
+              <a class="text-white bg-blue-700 hover:bg-gray-100 md:hover:bg-transparent block rounded py-2 pl-3 pr-3" href="{% url 'users:profile' %}">Logged in as <span class="fw-bold">{{ user.username }}</span></a>
             </li>
             <li>
-              <a class="hover:bg-gray-100 md:hover:bg-transparent text-white block rounded py-2 pl-3 pr-3" href="/logout">Logout</a>
+              <a class="hover:bg-gray-100 md:hover:bg-transparent text-white block rounded py-2 pl-3 pr-3" href="{% url 'users:log_out' %}">Logout</a>
             </li>
             {% else %}
             <li>
-              <a class="mx-4" href="/login">Login</a>
+              <a class="mx-4" href="{% url 'users:log_in' %}">Login</a>
             </li>
             <li>
-              <a class="mx-4" href="/sign-up">Register</a>
+              <a class="mx-4" href="{% url 'users:sign_up' %}">Register</a>
             </li>
             {% endif %}
           </ul>
