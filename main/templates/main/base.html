@@ -2,76 +2,80 @@
 
 <!DOCTYPE html>
 <html lang="en">
-   <head>
-      <meta charset="UTF-8" />
-      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <script src="https://cdn.tailwindcss.com"></script>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
 
-      <title>{% block title %}{% endblock %}</title>
+    <title>{% block title %}{% endblock %}</title>
 
-      <link rel="preconnect" href="https://fonts.googleapis.com" />
-      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet" />
 
-      <style>
-         #blur {
-            filter: blur(100px);
-            background-color: rgba(59, 130, 246, 0.1)
-         }
-        
-      </style>
-   </head>
+    <link href="{% static 'main/css/output.css' %}" rel="stylesheet" />
 
-   <body class="bg-gray-900 text-slate-200 font-inter">
-      <div class="absolute -z-10 rounded-full w-1/2 h-full top-0 left-1/2 rounded-tr-none rounded-bl-none" id="blur"></div>
+    <style>
+      #blur {
+        filter: blur(150px);
+        background-color: rgba(59, 130, 246, 0.1);
+      }
 
-      <nav class="bg-white border-gray-200 dark:bg-gray-900 shadow-2xl">
-         <div class="w-full flex p-4">
-            <a href="#" class="flex items-center absolute mb-2">
-               <img src="{% static 'main/media/logos/m-dark.png' %}" class="h-12 mr-3" alt="Manthano logo" />
-            </a>
-            <div class="flex flex-row ml-auto mr-auto">
-               <ul class="font-bold flex border border-gray-100 rounded-lg bg-gray-50 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700 pr-4 pl-4">
-                  <li class="pl-3 pr-3 hover:bg-gray-800 hover:scale-105 hover:shadow-lg hover:shadow-red-900 hover:ease-in-out hover:duration-75">
-                     <a class="block py-2 pl-3 pr-3 text-gray-900 rounded hover:bg-gray-100 hover:text-gray-100 md:hover:bg-transparent dark:text-gray-300" href="/home">Home</a>
-                  </li>
-                  <li class="pl-3 pr-3 hover:bg-gray-800 hover:scale-105 hover:shadow-lg hover:shadow-green-900 hover:ease-in-out hover:duration-75">
-                     <a class="block py-2 pl-3 pr-3 text-gray-900 rounded hover:bg-gray-100 hover:text-gray-100 md:hover:bg-transparent dark:text-gray-300" href="/class">Classroom</a>
-                  </li>
-                  <li class="pl-3 pr-3 hover:bg-gray-800 hover:scale-105 hover:shadow-lg hover:shadow-blue-900 hover:ease-in-out hover:duration-75">
-                     <a class="block py-2 pl-3 pr-3 text-gray-900 rounded hover:bg-gray-100 hover:text-gray-100 md:hover:bg-transparent dark:text-gray-300" href="/about">About</a>
-                  </li>
-                  <li class="pl-3 pr-3 hover:bg-gray-800 hover:scale-105 hover:shadow-lg hover:shadow-amber-900 hover:ease-in-out hover:duration-75">
-                     <a class="block py-2 pl-3 pr-3 text-gray-900 rounded hover:bg-gray-100 hover:text-gray-100 md:hover:bg-transparent dark:text-gray-300" href="https://github.com/reszkojr/manthano">GitHub</a>
-                  </li>
-                  <li class="pl-3 pr-3 hover:bg-gray-800 hover:scale-105 hover:shadow-lg hover:shadow-gray-500 hover:ease-in-out hover:duration-75">
-                     <a class="block py-2 pl-3 pr-3 text-gray-900 rounded hover:bg-gray-100 hover:text-gray-100 md:hover:bg-transparent dark:text-gray-300" href="/contribute">Contribute</a>
-                  </li>
-               </ul>
-               <ul class="flex flex-row justify-end absolute right-0">
-                  {% if user.is_authenticated %}
-                  <li>
-                     <a class="block py-2 pl-3 pr-3 text-white bg-blue-700 rounded hover:bg-gray-100 md:hover:bg-transparent dark:text-white" href="/profile">Logged in as <span class="fw-bold">{{ user.username }}</span></a>
-                  </li>
-                  <li>
-                     <a class="block py-2 pl-3 pr-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent dark:text-white" href="/logout">Logout</a>
-                  </li>
-                  {% else %}
-                  <li>
-                     <a class="nav-link" href="/login">Login</a>
-                  </li>
-                  <li>
-                     <a class="nav-link" href="/sign-up">Register</a>
-                  </li>
-                  {% endif %}
-               </ul>
-            </div>
-         </div>
-      </nav>
-      <div class="flex justify-center mt-12">
-         <div class="p-10 w-3/4 rounded-md border border-gray-700 text-left text-2xl relative">
-            {% block content %} {% endblock %}
-         </div>
+      .glassy {
+        box-shadow: inset 0px 2px 3px rgba(255, 255, 255, 0.06);
+      }
+    </style>
+  </head>
+
+  <body class="bg-gray-900 text-slate-200">
+    <div class="absolute top-0 left-1/2 -z-10 h-full w-1/2 rounded-full rounded-tr-none rounded-bl-none" id="blur"></div>
+
+    <nav class="border-gray-200 bg-gray-900 shadow-2xl">
+      <div class="relative flex w-full p-4">
+        <a href="#" class="absolute mb-2 flex items-center">
+          <img src="{% static 'main/media/logos/m-dark.png' %}" class="mr-3 h-12" alt="Manthano logo" />
+        </a>
+        <div class="ml-auto mr-auto flex flex-row">
+          <ul class="bg-gray-800 border-gray-700 flex rounded-lg border pr-4 pl-4 font-bold">
+            <li class="hover:bg-gray-800 hover:shadow-red-900 pl-3 pr-3 hover:scale-105 hover:shadow-lg hover:duration-75 hover:ease-in-out">
+              <a class="hover:bg-gray-100 hover:text-gray-100 md:hover:bg-transparent text-gray-300 block rounded py-2 pl-3 pr-3" href="/home">Home</a>
+            </li>
+            <li class="hover:bg-gray-800 hover:shadow-green-900 pl-3 pr-3 hover:scale-105 hover:shadow-lg hover:duration-75 hover:ease-in-out">
+              <a class="hover:bg-gray-100 hover:text-gray-100 md:hover:bg-transparent text-gray-300 block rounded py-2 pl-3 pr-3" href="/class">Classroom</a>
+            </li>
+            <li class="hover:bg-gray-800 hover:shadow-blue-900 pl-3 pr-3 hover:scale-105 hover:shadow-lg hover:duration-75 hover:ease-in-out">
+              <a class="hover:bg-gray-100 hover:text-gray-100 md:hover:bg-transparent text-gray-300 block rounded py-2 pl-3 pr-3" href="/about">About</a>
+            </li>
+            <li class="hover:bg-gray-800 hover:shadow-amber-900 pl-3 pr-3 hover:scale-105 hover:shadow-lg hover:duration-75 hover:ease-in-out">
+              <a class="hover:bg-gray-100 hover:text-gray-100 md:hover:bg-transparent text-gray-300 block rounded py-2 pl-3 pr-3" href="https://github.com/reszkojr/manthano">GitHub</a>
+            </li>
+            <li class="hover:bg-gray-800 hover:shadow-gray-500 pl-3 pr-3 hover:scale-105 hover:shadow-lg hover:duration-75 hover:ease-in-out">
+              <a class="hover:bg-gray-100 hover:text-gray-100 md:hover:bg-transparent text-gray-300 block rounded py-2 pl-3 pr-3" href="/contribute">Contribute</a>
+            </li>
+          </ul>
+          <ul class="absolute right-0 top-1/2 flex -translate-y-1/2 flex-row">
+            {% if user.is_authenticated %}
+            <li>
+              <a class="text-white bg-blue-700 hover:bg-gray-100 md:hover:bg-transparent block rounded py-2 pl-3 pr-3" href="/profile">Logged in as <span class="fw-bold">{{ user.username }}</span></a>
+            </li>
+            <li>
+              <a class="hover:bg-gray-100 md:hover:bg-transparent text-white block rounded py-2 pl-3 pr-3" href="/logout">Logout</a>
+            </li>
+            {% else %}
+            <li>
+              <a class="mx-4" href="/login">Login</a>
+            </li>
+            <li>
+              <a class="mx-4" href="/sign-up">Register</a>
+            </li>
+            {% endif %}
+          </ul>
+        </div>
       </div>
-   </body>
+    </nav>
+    <div class="mt-12 mb-20 flex justify-center">
+      <div class="glassy bg-blue border-gray-700 relative w-3/4 rounded-md border bg-opacity-70 p-10 text-left text-2xl">{% block content %} {% endblock %}</div>
+    </div>
+  </body>
 </html>
