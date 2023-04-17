@@ -1,0 +1,22 @@
+{% extends 'main/base.html' %}
+{% block title %}
+  Login
+{% endblock %}
+
+{% load crispy_forms_tags %}
+{% load tailwind_filters %}
+
+{% block content %}
+  <h1 class="text-center font-bold mb-10 text-5xl pb-8 border-gray-700 border-b-2">
+    Login
+  </h1>
+
+  <form method="post">
+    {% csrf_token %}
+    {{ form|crispy }}
+    <p>
+      Don't have an account? Create one <a href="/sign-up">here</a>
+    </p>
+    <button type="submit">Login</button>
+  </form>
+{% endblock %}
