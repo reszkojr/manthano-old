@@ -41,10 +41,15 @@ INSTALLED_APPS = [
     'crispy_forms',
     'crispy_tailwind',
     'PIL',
+    'tailwind',
+    'django_browser_reload',
+    'theme',
     'main.apps.MainConfig',
     'users',
     'classrooms',
 ]
+
+TAILWIND_APP_NAME = 'theme'
 
 CRISPY_ALLOWED_TEMPLATE_PACKS = 'tailwind'
 CRISPY_TEMPLATE_PACK = 'tailwind'
@@ -57,6 +62,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    "django_browser_reload.middleware.BrowserReloadMiddleware",
 ]
 
 ROOT_URLCONF = 'manthano.urls'
