@@ -52,7 +52,17 @@ module.exports = {
             colors: {
                 'parag': '#94A3B8',
                 'glass': '#1d344d',
-                'blue': '#182338'
+                blue: {
+                    100: "#d1d3d7",
+                    200: "#a3a7af",
+                    300: "#747b88",
+                    400: "#464f60",
+                    500: "#182338",
+                    600: "#131c2d",
+                    700: "#0e1522",
+                    800: "#0a0e16",
+                    900: "#05070b"
+                },
             },
 
             safelist: [{
@@ -72,11 +82,11 @@ module.exports = {
         require('@tailwindcss/aspect-ratio'),
         plugin(function ({ addBase }) {
             addBase({
-              '@font-face': {
-                fontFamily: 'Inter',
-                src: 'url(https://fonts.googleapis.com/css2?family=Inter&display=swap)'   
-              }
+                '@font-face': {
+                    fontFamily: 'Inter',
+                    src: 'url(https://fonts.googleapis.com/css2?family=Inter&display=swap)'
+                }
             })
-          }),
+        }),
     ],
 }

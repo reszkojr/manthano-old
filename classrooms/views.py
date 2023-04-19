@@ -1,16 +1,16 @@
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 
-from .forms import ClassroomCreationForm
+from django.urls import reverse
 
 from django.contrib.auth.decorators import login_required
 
-from django.shortcuts import redirect, render
+from .forms import ClassroomCreationForm
 
 @login_required(login_url='/login')
 def join_classroom(request):
     # The user does not have a classroom yet
     if not request.user.classroom:
-        return redirect(request, 'classroom/join_or_create.html')
+        return redirect('class:create_classroom')
     if request.method == 'POST':
         form = ClassroomCreationForm(request.POST)
         if form.is_valid():
@@ -20,4 +20,8 @@ def join_classroom(request):
     else:
         form = ClassroomCreationForm()
 
+    return render(request, 'classroom/classroom.html')
+
+@login_required(login_url='/login')
+def create_classroom(request):
     return render(request, 'classroom/create_classroom.html')

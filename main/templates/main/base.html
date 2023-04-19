@@ -42,7 +42,7 @@
               <a class="hover:bg-gray-100 hover:text-gray-100 md:hover:bg-transparent text-gray-300 block rounded py-2 pl-3 pr-3" href="/home">Home</a>
             </li>
             <li class="hover:bg-gray-800 hover:shadow-green-900 pl-3 pr-3 hover:scale-105 hover:shadow-lg hover:duration-75 hover:ease-in-out">
-              <a class="hover:bg-gray-100 hover:text-gray-100 md:hover:bg-transparent text-gray-300 block rounded py-2 pl-3 pr-3" href="/class">Classroom</a>
+              <a class="hover:bg-gray-100 hover:text-gray-100 md:hover:bg-transparent text-gray-300 block rounded py-2 pl-3 pr-3" href="{% url 'class:join_classroom' %}">Classroom</a>
             </li>
             <li class="hover:bg-gray-800 hover:shadow-blue-900 pl-3 pr-3 hover:scale-105 hover:shadow-lg hover:duration-75 hover:ease-in-out">
               <a class="hover:bg-gray-100 hover:text-gray-100 md:hover:bg-transparent text-gray-300 block rounded py-2 pl-3 pr-3" href="/about">About</a>
@@ -75,7 +75,7 @@
       </div>
     </nav>
     <div class="mt-12 mb-20 flex justify-center">
-      <div class="glassy bg-blue border-gray-700 relative w-3/4 rounded-md border bg-opacity-70 p-10 text-left text-2xl">{% block content %} {% endblock %}</div>
+      <div class="glassy bg-glass bg-blue border-gray-700 relative w-3/4 rounded-md border bg-opacity-70 p-10 text-left text-2xl">{% block content %} {% endblock %}</div>
     </div>
   </body>
 </html>

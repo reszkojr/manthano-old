@@ -10,5 +10,4 @@ app_name = 'main'
 urlpatterns = [
     path('', views.home, name='home'),
     path('home', views.home, name='home'),
-    path('classroom', include('classrooms.urls')),
 ]
