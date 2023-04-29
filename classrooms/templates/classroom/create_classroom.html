@@ -5,17 +5,22 @@
 {% block title %}Join a classroom{% endblock title %}
 
 {% block content %}
-<h1 class="font-bold text-center border-b border-gray-700 pb-8">Enter a classroom</h1>
-<div class="flex">
-    <div class="flex flex-col mx-auto mt-8">
-        <span class="text-center">Create a classroom:</span>
-        <input type="text" class="text-input" placeholder="Class's name">
-        <input type="text" class="text-input" placeholder="Class's description">
-    </div>
-    <div class="mx-auto border-r border-gray-700"></div>
-    <div class="flex flex-col mx-auto mt-8">
-        <span class="text-center">Join a classroom:</span>
-        <input type="text" class="text-input" placeholder="Class code">
+<div class="glassy w-1/2 bg-glass-500 border-gray-800 relative rounded-md border bg-opacity-70">
+    <div class="p-10">
+        <h1 class="font-bold text-2xl text-center border-b border-gray-700 pb-8">Enter a classroom!</h1>
+        <div class="flex">
+            <div class="flex flex-col mx-auto mt-8 justify-center bg-glass-700 bg-blue border-gray-700 relative rounded-md border bg-opacity-70 p-4">
+                <span class="text-center">Join a classroom:</span>
+                <input type="text" class="text-input" placeholder="Class code">
+            </div>
+            <div class="flex flex-col mx-auto mt-8 bg-glass-700 bg-blue border-gray-700 relative rounded-md border bg-opacity-70 p-4 ">
+                <span class="text-center">Or create yours!</span>
+                <form action="post" class="flex flex-col">
+                    <input type="text" name="class_name" class="text-input" placeholder="Class's name">
+                    <input type="text" name="class_description" class="text-input" placeholder="Class's description">
+                </form>
+            </div>
+        </div>
     </div>
 </div>
 
