@@ -8,3 +8,9 @@
     src: url('https://fonts.googleapis.com/css2?family=Inter&display=swap')
   }
 }
+
+@layer components {
+  .text-input {
+    @apply placeholder:text-left focus:bg-blue-800/50 bg-blue-800/25 mt-2 rounded-xl border-none outline-none
+  } 
+}

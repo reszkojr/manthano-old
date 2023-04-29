@@ -5,6 +5,23 @@
 
 {% load crispy_forms_tags %}
 
+{% block style %}
+<style>
+  #hint_id_password1 > ul > li {
+    font-size: 12px;
+    color: rgba(255,255,255,0.3)
+  }
+  p[id^='error_'] {
+    font-size:12px;
+    color: #ff1900;
+  }
+  p[id^='error_']::before {
+    content: '-';
+    margin-right: 2px;
+  }
+</style>
+{% endblock %}
+
 {% block content %}
   <h1 class="border-gray-700 mb-10 border-b-2 pb-8 text-center text-5xl font-bold">
     Registration

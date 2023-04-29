@@ -11,21 +11,26 @@ class RegistrationForm(UserCreationForm):
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
+        user_icon = '<i class="fa-solid fa-user" style="color: #bec8da;"></i>'
         self.helper = FormHelper()
         self.helper.layout = Layout(
             Div(
-                "first_name", "last_name", css_class="flex flex-row justify-between"),
-            "username",
-            "email",
-            "password1",
-            "password2",
-            Div(
-                HTML("<a href=\"/login\">Already have an account?</a>"),
-                Submit('submit', 'Register', css_class=""),
-                css_class="flex flex-row justify-between"
-            )
+                Field("first_name", placeholder="First name", css_class="text-input"),
+                Field("last_name", placeholder="Last name", css_class="text-input"),
+                Field("username", placeholder="Username", css_class="text-input"),
+                Field("email", placeholder="E-mail", css_class="text-input"),
+                Field("password1", placeholder="Password", css_class="text-input"),
+                Field("password2", placeholder="Password confirmation", css_class="text-input"),
+                Div(
+                    HTML("<a class='ml-auto' href='/login'>Already have an account?</a>"),
+                    css_class="flex mt-12"
+                ),
+                css_class="w-1/2 mx-auto"
+            ),
         )
-        self.helper.label_class = 'text-white-800 text-lg'
+        self.fields["password1"].help_text = None
+        self.fields["password2"].help_text = None
+        self.helper.form_show_labels = False
         self.helper.form_method = 'POST'
 
     class Meta:
@@ -45,14 +50,18 @@ class LoginForm(AuthenticationForm):
         super().__init__(*args, **kwargs)
         self.helper = FormHelper()
         self.helper.layout = Layout(
-            "username",
-            "password",
             Div(
-                HTML("<a href=\"/register\"> Don't have an account?</a>"),
-                Submit('submit', 'Login', css_class=""),
-                css_class="flex flex-row justify-between"
-            )
+                Field("username", placeholder="E-mail", css_class="text-input"),
+                Field("password", placeholder="Password", css_class="text-input"),
+                Div(
+                    HTML("<input class='cursor-pointer' type='submit' value='Login'>"),
+                    HTML("<a class='ml-auto' href='/sign_up'>Don't have an account?</a>"),
+                    css_class="flex mt-12"
+                ),
+                css_class="w-1/2 mx-auto"
+            ),
         )
+        self.helper.form_show_labels = False
         self.helper.label_class = 'text-white-800 text-lg'
         self.helper.form_method = 'POST'
 

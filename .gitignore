@@ -171,3 +171,8 @@ cython_debug/
 .prettierrc
 .vscode/settings.json
 main/static/main/css/output.css
+
+node-modules
+package-lock.json
+package.json
+prettier.config.js

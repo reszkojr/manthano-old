@@ -13,9 +13,11 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet" />
+    <script src="https://kit.fontawesome.com/1708a644c8.js" crossorigin="anonymous"></script>
+
 
 		{% tailwind_css %}
-
+    {% block style %}
     <style>
       #blur {
         filter: blur(150px);
@@ -26,6 +28,7 @@
         box-shadow: inset 0px 2px 3px rgba(255, 255, 255, 0.06);
       }
     </style>
+    {% endblock %}
   </head>
 
   <body class="bg-gray-900 text-slate-200">
