@@ -6,7 +6,7 @@ from django.contrib.auth.decorators import login_required
 
 from .forms import ClassroomCreationForm
 
-@login_required(login_url='/login')
+@login_required(login_url='/user/login')
 def join_classroom(request):
     # The user does not have a classroom yet
     if not request.user.classroom:
@@ -22,6 +22,6 @@ def join_classroom(request):
 
     return render(request, 'classroom/classroom.html')
 
-@login_required(login_url='/login')
+@login_required(login_url='/louser/gin')
 def create_classroom(request):
     return render(request, 'classroom/create_classroom.html')
