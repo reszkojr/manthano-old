@@ -1,5 +1,5 @@
+![manthano-light](https://user-images.githubusercontent.com/67809084/235317985-52ccf515-d4ef-42d8-beb8-21e559cfdf28.png)
 
-# Manthano
 > A virtual environment for learning and sharing resources.
 
 ## What is it?
