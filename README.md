@@ -1,4 +1,4 @@
-![manthano-light](https://user-images.githubusercontent.com/67809084/235317985-52ccf515-d4ef-42d8-beb8-21e559cfdf28.png)
+![manthano-light](https://user-images.githubusercontent.com/67809084/235318063-505837fb-368d-4192-b34f-f7a5c41c6dc3.png)
 
 > A virtual environment for learning and sharing resources.
 
