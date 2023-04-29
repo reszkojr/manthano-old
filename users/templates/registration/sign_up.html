@@ -4,30 +4,17 @@
 {% endblock %}
 
 {% load crispy_forms_tags %}
+{% load static %}
 
-{% block style %}
-<style>
-  #hint_id_password1 > ul > li {
-    font-size: 12px;
-    color: rgba(255,255,255,0.3)
-  }
-  p[id^='error_'] {
-    font-size:12px;
-    color: #ff1900;
-  }
-  p[id^='error_']::before {
-    content: '-';
-    margin-right: 2px;
-  }
-</style>
-{% endblock %}
+{% block head %}
+{{ block.super }}
+<link rel="stylesheet" href="{% static 'css/sign_style.css' %}">
+{% endblock head %}
 
 {% block content %}
-  <h1 class="border-gray-700 mb-10 border-b-2 pb-8 text-center text-5xl font-bold">
-    Registration
-  </h1>
-  <form method="post">
-    {% csrf_token %}
+<div class="glassy w-1/2 bg-glass bg-blue border-gray-700 relative rounded-md border bg-opacity-70  text-center">
+  <div class="p-10 inline-block">
     {% crispy registration_form registration_form.helper %}
-  </form>
+  </div>
+</div>
 {% endblock %}

@@ -1,0 +1,10 @@
+p[id^="error_"] { 
+  text-align: left;
+  font-size: 12px;
+  color: #ff1900;
+  margin-bottom: 20px;
+}
+p[id^="error_"]::before {
+  content: "-";
+  margin-right: 2px;
+}

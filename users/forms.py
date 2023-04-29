@@ -4,7 +4,7 @@ from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from users.models import Student
 
 from crispy_forms.helper import FormHelper
-from crispy_forms.layout import Layout, Fieldset, Field, Submit, HTML, Div, Button
+from crispy_forms.layout import Layout, Field, HTML, Div, Row
 
 
 class RegistrationForm(UserCreationForm):
@@ -14,18 +14,30 @@ class RegistrationForm(UserCreationForm):
         user_icon = '<i class="fa-solid fa-user" style="color: #bec8da;"></i>'
         self.helper = FormHelper()
         self.helper.layout = Layout(
+            HTML('<h1 class="font-bold text-3xl pb-5 mb-8 border-b border-solid border-gray-700 ">Welcome!</h1>'),
+            HTML('<label for="username" class="text-left block mb-1 text-sm font-medium text-gray-900 dark:text-white">Your username</label>'),
+            Field("username", placeholder="caveman123", css_class="text-input mb-4"),
+            HTML('<label for="email" class="text-left block mb-1 text-sm font-medium text-gray-900 dark:text-white">Your email</label>'),
+            Field("email", placeholder="cave123@men.com", css_class="text-input mb-4"),
+            HTML('<label for="password" class="text-left block mb-1 text-sm font-medium text-gray-900 dark:text-white">Your password</label>'),
+            Field("password1", placeholder="#hi_mom8%$!", css_class="text-input mb-4"),
+            HTML('<label for="password" class="text-left block mb-1 text-sm font-medium text-gray-900 dark:text-white">Confirm your password</label>'),
+            Field("password2", placeholder="#hi_mom8%$!", css_class="text-input mb-4"),
             Div(
-                Field("first_name", placeholder="First name", css_class="text-input"),
-                Field("last_name", placeholder="Last name", css_class="text-input"),
-                Field("username", placeholder="Username", css_class="text-input"),
-                Field("email", placeholder="E-mail", css_class="text-input"),
-                Field("password1", placeholder="Password", css_class="text-input"),
-                Field("password2", placeholder="Password confirmation", css_class="text-input"),
                 Div(
-                    HTML("<a class='ml-auto' href='/login'>Already have an account?</a>"),
-                    css_class="flex mt-12"
+                    HTML('<label for="first_name" class="text-left block mb-1 text-sm font-medium text-gray-900 dark:text-white">Your name</label>'),
+                    Field("first_name", placeholder="First name", css_class="text-input mb-4")
                 ),
-                css_class="w-1/2 mx-auto"
+                Div(
+                    HTML('<label for="last_name" class="text-left block mb-1 text-sm font-medium text-gray-900 dark:text-white">Your last name</label>'),
+                    Field("last_name", placeholder="Last name", css_class="text-input mb-4")
+                ),
+                css_class="flex gap-4 justify-between"
+            ),
+            Div(
+                HTML("<button type='submit' class='text-white focus:outline-none focus:ring font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center bg-blue-600 hover:bg-blue-700 focus:ring-blue-800'>Register</button>"),
+            HTML("<a class='text-white ml-auto focus:outline-none focus:ring font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center bg-blue-600 hover:bg-blue-700 focus:ring-blue-800' href='/user/login'>..or log-in!</a>"),
+                css_class="flex mt-6"
             ),
         )
         self.fields["password1"].help_text = None
@@ -50,15 +62,15 @@ class LoginForm(AuthenticationForm):
         super().__init__(*args, **kwargs)
         self.helper = FormHelper()
         self.helper.layout = Layout(
+            HTML('<h1 class="font-bold text-3xl pb-5 mb-8 border-b border-solid border-gray-700 ">Welcome back!</h1>'),
+            HTML('<label for="email" class="text-left block mb-1 text-sm font-medium text-gray-900 dark:text-white">Your email</label>'),
+            Field("username", placeholder="your@gmail.com", css_class="text-input mb-4"),
+            HTML('<label for="password" class="text-left block mb-1 text-sm font-medium text-gray-900 dark:text-white mb-4">Your password</label>'),
+            Field("password", placeholder="Password", css_class="text-input"),
             Div(
-                Field("username", placeholder="E-mail", css_class="text-input"),
-                Field("password", placeholder="Password", css_class="text-input"),
-                Div(
-                    HTML("<input class='cursor-pointer' type='submit' value='Login'>"),
-                    HTML("<a class='ml-auto' href='/sign_up'>Don't have an account?</a>"),
-                    css_class="flex mt-12"
-                ),
-                css_class="w-1/2 mx-auto"
+                HTML("<button type='submit' class='text-white focus:outline-none focus:ring font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center bg-blue-600 hover:bg-blue-700 focus:ring-blue-800'>Login</button>"),
+                HTML("<a class='text-white ml-auto focus:outline-none focus:ring font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center bg-blue-600 hover:bg-blue-700 focus:ring-blue-800' href='/user/sign-up'>Or join us!</a>"),
+                css_class="flex mt-6"
             ),
         )
         self.helper.form_show_labels = False

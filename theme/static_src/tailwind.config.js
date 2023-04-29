@@ -9,6 +9,7 @@ const plugin = require('tailwindcss/plugin');
  */
 
 module.exports = {
+    mode: "aot",
     content: [
         /**
          * HTML. Paths to Django template files that will contain Tailwind CSS classes.
@@ -42,7 +43,7 @@ module.exports = {
          * Python: If you use Tailwind CSS classes in Python, uncomment the following line
          * and make sure the pattern below matches your project structure.
          */
-        // '../../**/*.py'
+        '../../**/forms.py'
     ],
     theme: {
         extend: {
@@ -63,10 +64,21 @@ module.exports = {
                     800: "#0a0e16",
                     900: "#05070b"
                 },
+                neonblue: {
+                    100: "#cce2ff",
+                    200: "#99c5ff",
+                    300: "#66a8ff",
+                    400: "#338bff",
+                    500: "#006eff",
+                    600: "#0058cc",
+                    700: "#004299",
+                    800: "#002c66",
+                    900: "#001633"
+                },
             },
 
             safelist: [{
-                pattern: /(bg|text|border)-(parag|glass|blue)/
+                pattern: /(bg|text|border)-(parag|glass|blue|neonblue)/
             }]
         }
     },
