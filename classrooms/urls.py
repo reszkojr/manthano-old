@@ -6,5 +6,6 @@ app_name = 'class'
 
 urlpatterns = [
     path('room/<slug:code>/', views.classroom, name='classroom'),
+    path('room/<slug:code>/<slug:channel>', views.classroom, name='classroom'),
     path('create/', views.create_classroom, name='create_classroom'),
 ]
