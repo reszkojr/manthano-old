@@ -1,0 +1,51 @@
+{% extends 'classroom/base.html' %}
+{% block title %}{% if not channel %}{{ request.user.classroom.code }}{% else %} {{ channel }} | {{ request.user.classroom.code }}{% endif %}{% endblock title %}
+
+{% block content %}
+    <textarea id="chat-log" cols="100" rows="20"></textarea><br>
+    <input id="chat-input" type="text" size=100><br>
+    <input id="chat-send" type="button" value="Send"><br>
+{% endblock content %}
+
+{{ class_code|json_script:'class-code' }}
+{{ class_channel|json_script:'class-channel' }}
+<script>
+    
+    const classCode = JSON.parse(document.getElementById('class-code').textContent)
+    const classChannel = JSON.parse(document.getElementById('class-channel').textContent)
+
+    const chatSocket = new WebSocket(
+        'ws://'
+        + window.location.host
+        + '/ws/class'
+        + classCode
+        + '/'
+        + classChannel
+    );
+
+    chatSocket.onmessage = function(e) {
+        const data = JSON.parse(e.data);
+        document.querySelector('#chat-log').value += (data.message + '\n');
+    }
+
+    chatSocket.onclose = function(e) {
+        console.error('Chat socket closed unexpectedly!');
+    }
+
+    document.querySelector('#chat-input').focus();
+    document.querySelector('#chat-input').onkeyup = function(e) {
+        if (e.keyCode === 13) { // enter
+            document.querySelector('#chat-submit').click();
+        }
+    }
+
+    document.querySelector('#chat-submit').onclick = function(e) {
+        const msgInput = document.querySelector('#chat-input');
+        const msg = msgInput.value;
+        chatSocket.send(JSON.stringify({
+            'message': msg
+        }));
+        msgInput.value = '';
+    }
+
+</script>
