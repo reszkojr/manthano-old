@@ -41,7 +41,7 @@
               <a class="hover:bg-gray-100 hover:text-gray-100 md:hover:bg-transparent text-gray-300 block rounded py-2 pl-3 pr-3" href="/home">Home</a>
             </li>
             <li class="hover:bg-gray-800 hover:shadow-green-900 pl-3 pr-3 hover:scale-105 hover:shadow-lg hover:duration-75 hover:ease-in-out">
-              <a class="hover:bg-gray-100 hover:text-gray-100 md:hover:bg-transparent text-gray-300 block rounded py-2 pl-3 pr-3" href="{% url 'class:join_classroom' %}">Classroom</a>
+              <a class="hover:bg-gray-100 hover:text-gray-100 md:hover:bg-transparent text-gray-300 block rounded py-2 pl-3 pr-3" href="{% if request.user.classroom %}{% url 'class:classroom' request.user.classroom.code %}{% else %}{% url 'class:create_classroom' %}{% endif %}">Classroom</a>
             </li>
             <li class="hover:bg-gray-800 hover:shadow-blue-900 pl-3 pr-3 hover:scale-105 hover:shadow-lg hover:duration-75 hover:ease-in-out">
               <a class="hover:bg-gray-100 hover:text-gray-100 md:hover:bg-transparent text-gray-300 block rounded py-2 pl-3 pr-3" href="/about">About</a>
