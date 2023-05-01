@@ -27,7 +27,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-AUTH_USER_MODEL = 'users.Student'
+AUTH_USER_MODEL = 'users.User'
 
 # Application definition
 
@@ -84,7 +84,15 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'manthano.wsgi.application'
-
+ASGI_APPLICATION = 'manthano.asgi.application'
+CHANNEL_LAYERS = {
+    "default": {
+        "BACKEND": "channels_redis.core.RedisChannelLayer",
+        "CONFIG": {
+            "hosts": [("127.0.0.1", 6379)],
+        },
+    },
+}
 
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
