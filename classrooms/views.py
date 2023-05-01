@@ -7,16 +7,17 @@ from django.contrib import messages
 
 from .forms import ClassroomCreationForm
 
-from users.models    import User
+from users.models import User
 
 @login_required(login_url='/user/login')
-def classroom(request, code):
+def classroom(request, code, channel=None):
     if not request.user.classroom:
         return redirect('class:create_classroom')
     if request.user.classroom.code != code:
         messages.error(request, "You are not a member of this class!")
         return redirect('main:home')
-    return render(request, 'classroom/chat.html')
+    classroom = request.user.classroom
+    return render(request, 'classroom/base.html', {"class_code": code, "class_channel": channel, "classroom": classroom})
 
 @login_required(login_url='/user/login')
 def create_classroom(request):

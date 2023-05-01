@@ -1,16 +1,55 @@
+{% load static tailwind_tags %}
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://kit.fontawesome.com/1708a644c8.js"
+      crossorigin="anonymous"
+    ></script>
+    {% tailwind_css %}
     <title>{% block title %}{% endblock title %}</title>
-</head>
-<body>
-    
-    {% block content %}
-        
-    {% endblock content %}
-        
-</body>
+    <style>
+      .channel::before {
+        font-family: "Font Awesome 6 Free";
+        content: "\f30b";
+        display: inline-block;
+        padding-right: 5px;
+        vertical-align: middle;
+        font-weight: 800;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="flex">
+        <div class="channels bg-glass-700 border-glass-800 flex h-screen w-56 flex-col rounded-sm border-2 p-4 text-white">
+          <div class="w-full pb-4 text-center font-bold text-4xl">Classroom</div>
+          <div class="flex flex-col">
+            <div class="rounded-t-md border-b-2 border-b-blue-700 hover:bg-slate-800 hover:cursor-pointer bg-slate-700 py-4 pl-2">
+              <h2 class="channel">Espanhol</h2>
+            </div>
+            <div class="border-b-2 border-b-blue-700 hover:bg-slate-800 hover:cursor-pointer bg-slate-700 py-4 pl-2">
+              <h2 class="channel">Português</h2>
+            </div>
+            <div class="border-b-2 border-b-blue-700 hover:bg-slate-800 hover:cursor-pointer bg-slate-700 py-4 pl-2">
+              <h2 class="channel">Química</h2>
+            </div>
+            <div class="border-b-2 border-b-blue-700 hover:bg-slate-800 hover:cursor-pointer bg-slate-700 py-4 pl-2">
+              <h2 class="channel">Física</h2>
+            </div>
+            <div class="border-b-2 border-b-blue-700 hover:bg-slate-800 hover:cursor-pointer bg-slate-700 py-4 pl-2">
+              <h2 class="channel">Biologia</h2>
+            </div>
+            <div class="rounded-b-md border-b-blue-700 hover:bg-slate-800 hover:cursor-pointer bg-slate-700 py-4 pl-2">
+              <h2 class="channel">História</h2>
+            </div>
+          </div>
+        </div>
+        <div>
+            {% include 'classroom/chat.html' with class_channel=class_channel %}
+        </div>
+    </div>
+  </body>
 </html>
