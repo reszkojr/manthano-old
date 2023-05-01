@@ -11,17 +11,17 @@ def join_classroom(request):
     # The user does not have a classroom yet
     if not request.user.classroom:
         return redirect('class:create_classroom')
+
+    return render(request, 'classroom/classroom.html')
+
+@login_required(login_url='/user/login')
+def create_classroom(request):
     if request.method == 'POST':
         form = ClassroomCreationForm(request.POST)
         if form.is_valid():
-            classroom = ClassroomCreationForm.save(commit=False)
-            classroom.save()
+            classroom = form.save(commit=False)
             return redirect('/home')
     else:
         form = ClassroomCreationForm()
 
-    return render(request, 'classroom/classroom.html')
-
-@login_required(login_url='/louser/gin')
-def create_classroom(request):
-    return render(request, 'classroom/create_classroom.html')
+    return render(request, 'classroom/create_classroom.html', {'classroom_form': form})

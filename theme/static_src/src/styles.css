@@ -13,4 +13,7 @@
   .text-input {
     @apply focus:outline-neonblue-600 mt-2 rounded-xl border-none bg-blue-800/25 placeholder:text-left focus:bg-blue-800/50 focus:outline-2;
   }
+  .glassy {
+    box-shadow: inset 0px 2px 3px rgba(255, 255, 255, 0.06);
+  }
 }
