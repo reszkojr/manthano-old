@@ -1,7 +1,7 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 
-from users.models import Student
+from users.models import User
 
 from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Layout, Field, HTML, Div, Row
@@ -45,7 +45,7 @@ class RegistrationForm(UserCreationForm):
         self.helper.form_method = 'POST'
 
     class Meta:
-        model = Student
+        model = User
         fields = [
             "first_name",
             "last_name",
@@ -77,7 +77,7 @@ class LoginForm(AuthenticationForm):
         self.helper.form_method = 'POST'
 
     class Meta:
-        model = Student
+        model = User
         fields = [
             "username",
             "password",

@@ -8,7 +8,7 @@ from django.core.mail import send_mail
 from datetime import timezone
 
 
-class StudentManager(BaseUserManager):
+class UserManager(BaseUserManager):
     def _create_user(self, username, email, password, is_staff, is_superuser, is_active, **extra_fields):
         now = timezone.now()
         if not username:
@@ -29,7 +29,7 @@ class StudentManager(BaseUserManager):
         user.save(using=self._db)
         return user
 
-class Student(AbstractBaseUser, PermissionsMixin):
+class User(AbstractBaseUser, PermissionsMixin):
     username = models.CharField('Username', max_length=32)
     first_name = models.CharField('First name', max_length=32)
     last_name = models.CharField('Last name', max_length=255)
@@ -43,7 +43,7 @@ class Student(AbstractBaseUser, PermissionsMixin):
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = ['username', 'password']
 
-    objects = StudentManager()
+    objects = UserManager()
 
     class Meta:
         verbose_name = 'username'
