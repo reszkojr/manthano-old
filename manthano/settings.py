@@ -44,7 +44,6 @@ INSTALLED_APPS = [
     'crispy_tailwind',
     'PIL',
     'tailwind',
-    'django_browser_reload',
     'theme',
     'main.apps.MainConfig',
     'users',
@@ -64,8 +63,9 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    "django_browser_reload.middleware.BrowserReloadMiddleware",
 ]
+
+MESSAGE_STORAGE = 'django.contrib.messages.storage.session.SessionStorage'
 
 ROOT_URLCONF = 'manthano.urls'
 
