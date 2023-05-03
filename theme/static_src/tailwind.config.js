@@ -9,7 +9,7 @@ const plugin = require('tailwindcss/plugin');
  */
 
 module.exports = {
-    mode: "aot",
+    mode: "jit",
     content: [
         /**
          * HTML. Paths to Django template files that will contain Tailwind CSS classes.
