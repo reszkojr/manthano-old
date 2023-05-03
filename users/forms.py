@@ -25,18 +25,18 @@ class RegistrationForm(UserCreationForm):
             Field("password2", placeholder="#hi_mom8%$!", css_class="text-input mb-4"),
             Div(
                 Div(
-                    HTML('<label for="first_name" class="text-left block mb-1 text-sm font-medium text-gray-900 dark:text-white">Your name</label>'),
-                    Field("first_name", placeholder="First name", css_class="text-input mb-4")
+                    HTML('<label for="first_name" class="text-left block mb-1 text-sm font-medium text-gray-900 dark:text-white">Your first name</label>'),
+                    Field("first_name", placeholder="John", css_class="text-input mb-4")
                 ),
                 Div(
                     HTML('<label for="last_name" class="text-left block mb-1 text-sm font-medium text-gray-900 dark:text-white">Your last name</label>'),
-                    Field("last_name", placeholder="Last name", css_class="text-input mb-4")
+                    Field("last_name", placeholder="Doe", css_class="text-input mb-4")
                 ),
                 css_class="flex gap-4 justify-between"
             ),
             Div(
                 HTML("<button type='submit' class='text-white focus:outline-none focus:ring font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center bg-blue-600 hover:bg-blue-700 focus:ring-blue-800'>Register</button>"),
-            HTML("<a class='text-white ml-auto focus:outline-none focus:ring font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center bg-blue-600 hover:bg-blue-700 focus:ring-blue-800' href='/user/login'>..or log-in!</a>"),
+                HTML("<a class='text-white ml-auto focus:outline-none focus:ring font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center bg-blue-600 hover:bg-blue-700 focus:ring-blue-800' href='/user/login'>..or log-in!</a>"),
                 css_class="flex mt-6"
             ),
         )
