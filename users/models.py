@@ -29,6 +29,17 @@ class UserManager(BaseUserManager):
         user.save(using=self._db)
         return user
 
+class Profile(models.Model):
+    user = models.OneToOneField("users.User", on_delete=models.CASCADE)
+
+    profile_picture = models.ImageField(default='default.jpg', upload_to='profile_images/')
+    profile_background = models.ImageField(default='default.jpg', upload_to='profile_backgrounds/')
+
+    desc = models.TextField('Description', null=True, blank=True)
+
+    def __str__(self):
+        return self.user.username
+    
 class User(AbstractBaseUser, PermissionsMixin):
     username = models.CharField('Username', max_length=32)
     first_name = models.CharField('First name', max_length=32)
