@@ -35,8 +35,8 @@ class RegistrationForm(UserCreationForm):
                 css_class="flex gap-4 justify-between"
             ),
             Div(
-                HTML("<button type='submit' class='text-white focus:outline-none focus:ring font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center bg-blue-600 hover:bg-blue-700 focus:ring-blue-800'>Register</button>"),
-                HTML("<a class='text-white ml-auto focus:outline-none focus:ring font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center bg-blue-600 hover:bg-blue-700 focus:ring-blue-800' href='/user/login'>..or log-in!</a>"),
+                HTML("<button type='submit' class='text-white focus:outline-none focus:ring font-medium rounded-lg text-sm px-5 py-2.5 text-center bg-blue-600 hover:bg-blue-700 focus:ring-blue-800'>Register</button>"),
+                HTML("<a class='text-white ml-auto focus:outline-none focus:ring font-medium rounded-lg text-sm px-5 py-2.5 text-center bg-blue-600 hover:bg-blue-700 focus:ring-blue-800' href='/user/login'>..or log-in!</a>"),
                 css_class="flex mt-6"
             ),
         )
@@ -68,8 +68,8 @@ class LoginForm(AuthenticationForm):
             HTML('<label for="password" class="text-left block mb-1 text-sm font-medium text-gray-900 dark:text-white mb-4">Your password</label>'),
             Field("password", placeholder="Password", css_class="text-input"),
             Div(
-                HTML("<button type='submit' class='text-white focus:outline-none focus:ring font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center bg-blue-600 hover:bg-blue-700 focus:ring-blue-800'>Login</button>"),
-                HTML("<a class='text-white ml-auto focus:outline-none focus:ring font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center bg-blue-600 hover:bg-blue-700 focus:ring-blue-800' href='/user/sign-up'>Or join us!</a>"),
+                HTML("<button type='submit' class='text-white focus:outline-none focus:ring font-medium rounded-lg text-sm px-5 py-2.5 text-center bg-blue-600 hover:bg-blue-700 focus:ring-blue-800'>Login</button>"),
+                HTML("<a class='text-white ml-auto focus:outline-none focus:ring font-medium rounded-lg text-sm px-5 py-2.5 text-center bg-blue-600 hover:bg-blue-700 focus:ring-blue-800' href='/user/sign-up'>Or join us!</a>"),
                 css_class="flex mt-6"
             ),
         )

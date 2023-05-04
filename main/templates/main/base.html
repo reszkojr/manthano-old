@@ -7,7 +7,7 @@
     {% block head %}
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width" />
 
     <title>{% block title %}{% endblock %}</title>
 
@@ -19,10 +19,15 @@
 		{% tailwind_css %}
     {% block style %}
     <style>
+      html, body {
+        overflow-x: hidden;
+      }
+
       body {
         background: rgb(21,32,55);
         background: linear-gradient(180deg, rgba(21,32,55,1) 40%, rgba(14,51,112,1) 100%);
         background-attachment: fixed;
+        width: 100%;
       }
       .glassy {
         box-shadow: inset 0px 2px 3px rgba(255, 255, 255, 0.06);
@@ -32,14 +37,14 @@
     {% endblock head %}
   </head>
 
-  <body class="bg-gray-900 text-slate-200">
+  <body class="overflow-x-hidden w-full bg-gray-900 text-slate-200">
     <nav class="border-gray-200 bg-gray-900 shadow-2xl">
       <div class="relative flex w-full p-4">
         <a href="#" class="absolute mb-2 flex items-center">
           <img src="{% static 'main/media/logos/m-dark.png' %}" class="mr-3 h-12" alt="Manthano logo" />
         </a>
-        <div class="ml-auto mr-auto flex flex-row">
-          <ul class="bg-gray-800 border-gray-700 flex rounded-lg border pr-4 pl-4 font-bold">
+        <div class="ml-auto mr-auto">
+          <ul class="invisible lg:visible bg-gray-800 border-gray-700 flex rounded-lg border pr-4 pl-4 font-bold">
             <li class="hover:bg-gray-800 hover:shadow-red-900 pl-3 pr-3 hover:scale-105 hover:shadow-lg hover:duration-75 hover:ease-in-out">
               <a class="hover:bg-gray-100 hover:text-gray-100 md:hover:bg-transparent text-gray-300 block rounded py-2 pl-3 pr-3" href="/home">Home</a>
             </li>
