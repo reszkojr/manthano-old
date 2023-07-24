@@ -2,7 +2,7 @@
 
 > A virtual environment for learning and sharing resources.
 
-![preview](https://img001.prntscr.com/file/img001/8M1cHAXnRAudqjYaPcTQeQ.png)
+![manthano landing](https://github.com/reszkojr/manthano/assets/67809084/45103725-480e-4f79-af06-6a61e6b3858a)
 
 ## What is it?
 
