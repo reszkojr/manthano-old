@@ -1,4 +1,4 @@
-<img src="https://user-images.githubusercontent.com/67809084/235318207-d640481d-d4ae-4a6a-9bc5-a35362f41622.png" width="500" alt="manthano-light" style="max-width: 100%;">
+<img src="https://github.com/reszkojr/manthano/assets/67809084/695f3150-4798-4d17-a182-8fac8d4f9625" width="500" alt="manthano-light" style="max-width: 100%; padding-bottom: 200px;">
 
 > A virtual environment for learning and sharing resources.
 
