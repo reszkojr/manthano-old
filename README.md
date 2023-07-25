@@ -18,6 +18,7 @@ Manthano is a platform that helps students to study and understand subjects usin
  - Class' calendar;
  - Jitsi meetings API (Discord-like videocalls);
  - Google Jamboards integration.
+ - Chronos - A calendar designed to organize students lessons managed by the professors.
 
 # Installation
 
