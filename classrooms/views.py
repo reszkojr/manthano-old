@@ -22,6 +22,6 @@ def join_classroom(request):
 
     return render(request, 'classroom/classroom.html')
 
-@login_required(login_url='/louser/gin')
+@login_required(login_url='/user/login')
 def create_classroom(request):
     return render(request, 'classroom/create_classroom.html')
